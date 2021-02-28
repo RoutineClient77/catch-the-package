@@ -72,11 +72,27 @@ function draw() {
   background(0);
  
    
-  keyPressed();
+   keyPressed();
 
 
 
 
+ function keyPressed(){
+	if(keyDown(RIGHT_ARROW)){
+	helicopterSprite.x=helicopterSprite.x+5;
+	packageSprite.x=packageSprite.x+5;
+    }
+    if(keyDown(LEFT_ARROW)){
+	helicopterSprite.x=helicopterSprite.x-5;
+	packageSprite.x=packageSprite.x-5;
+    }
+    if(keyDown(DOWN_ARROW)){
+	packageSprite.velocityY = 5;
+    }
+    if(packageSprite.y > 610){
+	packageSprite.velocityY = 0;
+    }
+ }
 
 
  
@@ -89,19 +105,3 @@ function draw() {
  
 }
 
-function keyPressed(){
-	if(keyDown(RIGHT_ARROW)){
-	helicopterSprite.x=helicopterSprite.x+5;
-	packageSprite.x=packageSprite.x+5;
-    }
-    if(keyDown(LEFT_ARROW)){
-	helicopterSprite.x=helicopterSprite.x-5;
-	packageSprite.x=packageSprite.x-5;
-    }
-    if(keyDown(DOWN_ARROW)){
-	packageSprite.velocityY = 5;
-    }
-    if(packageSprite.isTouching(boxBottomBody)){
-	packageSprite.velocityY = 0;
-    }
-}
